@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$stmt->execute();
 			header('Location:home_admin.php');
 		};
-	} catch (PDOException $e) {
+	} catch (Exception $e) {
 		$erro = $e->getMessage();
 	};
 	

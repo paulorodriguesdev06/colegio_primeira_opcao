@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			if ($registro['admin'] == 1) {
 				header('Location: admin/home_admin.php');
 			} else {
-				echo "Você não tem permissão!";
+				$erro = "Você não tem permissão para acessar o sistema!";
 			};
 		} else {
 			$erro = "Usuário ou senha incorretos.";
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	      
 	      <!-- Usuário -->
     		<div>
-		        <label for="usuario" class="block text-sm font-medium text-gray-700">Usuáriodawdaw</label>
+		        <label for="usuario" class="block text-sm font-medium text-gray-700">Usuário</label>
 		        <input
 		          type="text"
 		          id="usuario"
@@ -104,7 +104,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		    <!-- Rodapé -->
 	    <p class="text-center text-sm text-gray-500 mt-6">
-	    	Esqueceu a senha? <a href="#" class="text-blue-600 hover:underline">Recuperar acesso</a>
+	    	Esqueceu a senha? <a href="Recuperar_senha/recuperarSenha.php" class="text-blue-600 hover:underline">Recuperar acesso</a>
 	    </p>
 	</div>
 
