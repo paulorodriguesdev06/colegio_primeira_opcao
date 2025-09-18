@@ -1,4 +1,4 @@
-<?php require './connection_db/coneccao.php';
+<?php require './connection_db/conexao.php';
 
 $sql = "SELECT * FROM `funcionarios` WHERE usuario = :usuario";
 $stmt = $pdo->prepare($sql);
@@ -13,23 +13,24 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$stmt->execute();
 
 		$registro = $stmt->fetch(PDO::FETCH_ASSOC);
-
-		if($registro['usuario'] == $usuario && password_verify($senha, $registro['senha'])) {
-			if ($registro['admin'] == 1) {
-				header('Location: admin/home_admin.php');
-			} else {
-				$erro = "Você não tem permissão para acessar o sistema!";
-			};
-		} else {
-			$erro = "Usuário ou senha incorretos.";
-		};
 		
+		if (!empty($registro)) {
+			if ($registro['usuario'] == $usuario && password_verify($senha, $registro['senha'])) {
+				if ($registro['admin'] == 1) {
+					header('Location: admin/home_admin.php');
+				} else {
+					$erro = "Você não tem permissão para acessar o sistema!";
+				};
+			} else {
+				$erro = "Usuário ou senha incorretos.";
+			};
 
+		} else {
+			$erro = "Usuário não encontrado.";
+		};
 	};
 	
 };
-
-
 
 ?>
 

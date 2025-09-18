@@ -1,4 +1,4 @@
-<?php require_once '../connection_db/coneccao.php';
+<?php require_once '../connection_db/conexao.php';
 
 $sql = "INSERT INTO `funcionarios`(`usuario`, `senha`, `nome`, `telefone`, `serie`, `especialidade`, `admin`) VALUES ( :usuario, :senha, :nome, :telefone, :serie, :especialidade, :admin)";
 $stmt = $pdo->prepare($sql);

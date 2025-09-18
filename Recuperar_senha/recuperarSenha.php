@@ -1,4 +1,6 @@
-<?php require_once '../connection_db/coneccao.php';
+<?php 
+require_once '../connection_db/conexao.php';
+
 
 
 
