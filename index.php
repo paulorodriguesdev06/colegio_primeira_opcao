@@ -17,9 +17,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (!empty($registro)) {
 			if ($registro['usuario'] == $usuario && password_verify($senha, $registro['senha'])) {
 				if ($registro['admin'] == 1) {
-					header('Location: admin/home_admin.php');
+					header('Location: admin/home_admin/home_admin.php');
 				} else {
-					$erro = "Você não tem permissão para acessar o sistema!";
+					header('Location: home_page/home_page.php');
 				};
 			} else {
 				$erro = "Usuário ou senha incorretos.";
@@ -45,10 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Story+Script&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex justify-center items-center w-screen h-screen bg-gray-100 font-[Poppins]">
+<body class="flex w-screen h-screen bg-gray-100 font-[Poppins]">
 
-    <div class="bg-white shadow-lg p-8 rounded-3xl w-full max-w-md">
-    	<div class="flex items-center justify-center mb-2">
+    <section class="content-section bg-white shadow-lg p-8 w-1/2 h-full flex flex-col justify-center">
+    	<div class="flex items-center justify-center mb-5">
       		<img class="max-w-[100px]" src="./images/logo.jpg" draggable="false"  alt="">
       		<h2 class="text-4xl font-bold font-[Lobster]">Primeira <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>
       	</div>
@@ -107,7 +107,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	    <p class="text-center text-sm text-gray-500 mt-6">
 	    	Esqueceu a senha? <a href="Recuperar_senha/recuperarSenha.php" class="text-blue-600 hover:underline">Recuperar acesso</a>
 	    </p>
-	</div>
+	</section>
+
+	<section class="image-section w-1/2 h-full">
+		<img class="w-full h-full object-cover" src="./images/image-login.jpg" alt="">
+	</section>
+	
 
 </body>
 </html>
