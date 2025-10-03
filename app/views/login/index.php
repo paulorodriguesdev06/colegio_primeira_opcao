@@ -1,37 +1,5 @@
-<?php require './connection_db/conexao.php';
-
-$sql = "SELECT * FROM `funcionarios` WHERE usuario = :usuario";
-$stmt = $pdo->prepare($sql);
-$erro = null;
-
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-	if (!empty($_POST['usuario']) && !empty($_POST['senha'])) {
-		$usuario = htmlspecialchars($_POST['usuario']);
-		$senha = htmlspecialchars($_POST['senha']);
-
-		$stmt->bindParam(':usuario', $usuario);
-		$stmt->execute();
-
-		$registro = $stmt->fetch(PDO::FETCH_ASSOC);
-		
-		if (!empty($registro)) {
-			if ($registro['usuario'] == $usuario && password_verify($senha, $registro['senha'])) {
-				if ($registro['admin'] == 1) {
-					header('Location: admin/home_admin/home_admin.php');
-				} else {
-					header('Location: home_page/home_page.php');
-				};
-			} else {
-				$erro = "Usuário ou senha incorretos.";
-			};
-
-		} else {
-			$erro = "Usuário não encontrado.";
-		};
-	};
-	
-};
-
+<?php
+namespace App\views\login;
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Story+Script&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex w-screen h-screen bg-gray-100 font-[Poppins]">
+<body class="flex w-screen h-screen bg- font-[Poppins]">
 
     <section class="content-section bg-white shadow-lg p-8 w-1/2 h-full flex flex-col justify-center">
     	<div class="flex items-center justify-center mb-5">
@@ -102,10 +70,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	      	</div>
 
 	    </form>
-
+ 
 		    <!-- Rodapé -->
 	    <p class="text-center text-sm text-gray-500 mt-6">
-	    	Esqueceu a senha? <a href="Recuperar_senha/recuperarSenha.php" class="text-blue-600 hover:underline">Recuperar acesso</a>
+	    	Esqueceu a senha? <a href="login/redefinirSenha" class="text-blue-600 hover:underline">Recuperar acesso</a>
 	    </p>
 	</section>
 
