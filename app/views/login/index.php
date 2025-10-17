@@ -1,5 +1,8 @@
 <?php
 namespace App\views\login;
+use App\Controllers\LoginController;
+
+
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +20,11 @@ namespace App\views\login;
 
     <section class="content-section bg-white shadow-lg p-8 w-1/2 h-full flex flex-col justify-center">
     	<div class="flex items-center justify-center mb-5">
-      		<img class="max-w-[100px]" src="./images/logo.jpg" draggable="false"  alt="">
+      		<img class="max-w-[100px]" src="<?= BASE_IMAGES ?>logo.jpg" alt="Logo">
       		<h2 class="text-4xl font-bold font-[Lobster]">Primeira <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>
       	</div>
 		
 	    <form action="" method="POST" class="space-y-6">
-	      
 	      <!-- Usuário -->
     		<div>
 		        <label for="usuario" class="block text-sm font-medium text-gray-700">Usuário</label>
@@ -78,7 +80,7 @@ namespace App\views\login;
 	</section>
 
 	<section class="image-section w-1/2 h-full">
-		<img class="w-full h-full object-cover" src="./images/image-login.jpg" alt="">
+		<img class="w-full h-full object-cover" src="<?= BASE_IMAGES ?>image-login.jpg" alt="">
 	</section>
 	
 

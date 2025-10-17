@@ -1,4 +1,6 @@
 <?php
+define('BASE_URL', '/colegio_primeira_opcao');
+define('BASE_IMAGES', BASE_URL . '/public/images/');
 
 function dd(... $vars) {
     echo '<pre style="background: #f1f1f1; color: #000; padding: 10px;">';

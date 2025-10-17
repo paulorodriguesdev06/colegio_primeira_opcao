@@ -11,8 +11,7 @@ class Router {
     public function dispatch($url) {
         $url = trim($url, '/');
         $parts = $url ? explode('/', $url) : [];
-        // dd($parts);
-        $controllerName = $parts[0] ?? 'Login';
+        $controllerName = isset($parts[0]) ? $parts[0] : 'Login';
         $controllerName = 'App\Controllers\\' . ucfirst($controllerName) . 'Controller';
         if(!class_exists($controllerName)) {
             $controller = new ErrorController();
@@ -21,7 +20,7 @@ class Router {
         };
 
         $controller = new $controllerName();
-        $actionName = $parts[1] ?? 'index';
+        $actionName = isset($parts[1]) ? $parts[1] : 'index';
         if(!method_exists($controller, $actionName)) {
             $controller = new ErrorController();
             $controller->notfound();

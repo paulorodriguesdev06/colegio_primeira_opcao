@@ -4,7 +4,7 @@ use App\Core\Database;
 use PDO;
 abstract class Model {
 
-    protected PDO $pdo;
+    protected $pdo;
 
     public function __construct() {
         $db = new Database();

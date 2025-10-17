@@ -9,4 +9,8 @@ class Controller {
         }
         require_once $viewFile;
     }
+
+    public function loadTemplate($view, $viewData = []) {
+        require_once '../app/views/template.php';
+    }
 }

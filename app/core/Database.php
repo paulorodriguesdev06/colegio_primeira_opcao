@@ -9,7 +9,7 @@ class Database {
     protected $pdo;
     public function __construct()
     {
-        $dsn = "mysql:dbname=projetos;host=localhost";
+        $dsn = "mysql:dbname=colegio_primeira_opcao;host=localhost";
         $user = "root";
         $pass = "";
 

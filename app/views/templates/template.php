@@ -1,3 +1,7 @@
+<?php
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -18,7 +22,7 @@
                 >
             </div>
             <div class="logo-box flex mb-[10%]">
-                <img src="" alt="Logo-image">
+                <img src="/app/assets/images/logo.jpg" alt="Logo-image">
                 <h2>logo</h2>
             </div>
             <div class="nav-links flex flex-col gap-1">

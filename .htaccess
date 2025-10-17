@@ -1,4 +1,20 @@
+# .htaccess da raiz
 RewriteEngine On
+RewriteBase /colegio_primeira_opcao/
 
-RewriteCond %{REQUEST_URI} !^/public
+# Evita loop se já estiver em /public/
+RewriteRule ^public/ - [L]
+
+# 👉 Permite servir diretamente qualquer arquivo que exista em /public
+RewriteCond %{DOCUMENT_ROOT}/colegio_primeira_opcao/public%{REQUEST_URI} -f
+RewriteRule ^(.*)$ public/$1 [L]
+
+# 👉 Se for um diretório (ex: /images/, /css/)
+RewriteCond %{DOCUMENT_ROOT}/colegio_primeira_opcao/public%{REQUEST_URI} -d
+RewriteRule ^(.*)$ public/$1 [L]
+
+# 👉 Tudo o que sobrar vai pro roteador
 RewriteRule ^(.*)$ public/index.php?url=$1 [QSA,L]
+
+# Define o arquivo padrão
+DirectoryIndex public/index.php
