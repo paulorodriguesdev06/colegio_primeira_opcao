@@ -1,5 +1,6 @@
 <?php
 define('BASE_URL', '/colegio_primeira_opcao');
+define('BASE_ASSETS', BASE_URL . '/public/assets');
 define('BASE_IMAGES', BASE_URL . '/public/images/');
 
 function dd(... $vars) {

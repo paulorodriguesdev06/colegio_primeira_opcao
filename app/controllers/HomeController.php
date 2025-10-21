@@ -3,6 +3,6 @@ namespace App\Controllers;
 use App\Core\Controller;
 class HomeController extends Controller{
     public function index() {
-        $this->view('publicView/home/index');
+        $this->loadTemplate('publicView/home/index');
     }
 }

@@ -11,6 +11,6 @@ class Controller {
     }
 
     public function loadTemplate($view, $viewData = []) {
-        require_once '../app/views/template.php';
+        require_once '../app/views/templates/template.php';
     }
 }

@@ -16,9 +16,9 @@ use App\Controllers\LoginController;
 	<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Story+Script&display=swap" rel="stylesheet">
 	<script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex w-screen h-screen bg- font-[Poppins]">
+<body class="flex items-center justify-center w-screen h-screen bg-[url(<?= BASE_IMAGES ?>image-login.jpg?>)] bg-cover bg-center font-[Poppins]">
 
-    <section class="content-section bg-white shadow-lg p-8 w-1/2 h-full flex flex-col justify-center">
+    <section class="content-section bg-white shadow-lg p-8 w-1/3 flex flex-col shadow-lg justify-center rounded-3xl">
     	<div class="flex items-center justify-center mb-5">
       		<img class="max-w-[100px]" src="<?= BASE_IMAGES ?>logo.jpg" alt="Logo">
       		<h2 class="text-4xl font-bold font-[Lobster]">Primeira <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>
@@ -77,10 +77,6 @@ use App\Controllers\LoginController;
 	    <p class="text-center text-sm text-gray-500 mt-6">
 	    	Esqueceu a senha? <a href="login/redefinirSenha" class="text-blue-600 hover:underline">Recuperar acesso</a>
 	    </p>
-	</section>
-
-	<section class="image-section w-1/2 h-full">
-		<img class="w-full h-full object-cover" src="<?= BASE_IMAGES ?>image-login.jpg" alt="">
 	</section>
 	
 
