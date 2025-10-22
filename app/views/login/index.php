@@ -1,8 +1,6 @@
 <?php
 namespace App\views\login;
 use App\Controllers\LoginController;
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +16,7 @@ use App\Controllers\LoginController;
 </head>
 <body class="flex items-center justify-center w-screen h-screen bg-[url(<?= BASE_IMAGES ?>image-login.jpg?>)] bg-cover bg-center font-[Poppins]">
 
-    <section class="content-section bg-white shadow-lg p-8 w-1/3 flex flex-col shadow-lg justify-center rounded-3xl">
+    <section class="content-section bg-white shadow-lg p-8 w-1/3 flex flex-col justify-center rounded-3xl">
     	<div class="flex items-center justify-center mb-5">
       		<img class="max-w-[100px]" src="<?= BASE_IMAGES ?>logo.jpg" alt="Logo">
       		<h2 class="text-4xl font-bold font-[Lobster]">Primeira <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>

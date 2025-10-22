@@ -10,7 +10,11 @@ class Controller {
         require_once $viewFile;
     }
 
-    public function loadTemplate($view, $viewData = []) {
-        require_once '../app/views/templates/template.php';
+    public function loadTemplateAdmin($view, $viewData = []) {
+        require_once '../app/views/templates/templateAdmin.php';
+    }
+
+    public function loadTemplatePublic($view, $viewData = []) {
+        require_once '../app/views/templates/templatePublic.php';
     }
 }

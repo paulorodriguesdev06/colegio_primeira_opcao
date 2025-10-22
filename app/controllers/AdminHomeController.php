@@ -5,6 +5,8 @@ use App\Core\Controller;
 class AdminHomeController extends Controller
 {
     public function index() {
-        $this->loadTemplate('adminView/home/index');
+        $dados = [];
+        $this->loadTemplateAdmin('adminView/home/index', $dados);
     }
+
 }

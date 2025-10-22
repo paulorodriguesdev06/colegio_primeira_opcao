@@ -16,16 +16,10 @@ class UsuarioDao extends Model{
         }
     }
 
-    private function seEmailExiste($email) {
-        $sql = "SELECT * FROM users WHERE email = :email";
+    public function quantidadeDeFuncionários() {
+        $sql = "SELECT * FROM funcionarios";
         $stmt = $this->pdo->prepare($sql);
-        $stmt->bindValue(':email', $email);
         $stmt->execute();
-        $qtdLinhas = $this->contarLinhas($stmt);
-    
-        $resultado = $stmt->fetch();
-        return $resultado;
-        
+        return $stmt->rowCount();
     }
-
 }
