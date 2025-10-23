@@ -30,7 +30,7 @@ use App\Core\Controller;
                     <h2 class="text-xl font-[Lobster] block pl-2">Colégio <span class="flex">Primeira Opção</span></h2>
                 </div>
 
-                <div class="w-full h-[1px] rounded-3xl bg-gray-300 mb-4"></div>
+                <div class="w-full h-px rounded-3xl bg-gray-300 mb-4"></div>
 
                 <div class="nav-links flex flex-col gap-1">
 
@@ -131,7 +131,7 @@ use App\Core\Controller;
 
                 <div id="perfil-dropdown" class="max-h-0 opacity-0 px-4 py-3 pointer-events-none transition-all absolute top-13 right-8 overflow-hidden flex bg-slate-100 border border-gray-200 text-sm text-nowrap rounded-br-xl rounded-bl-xl">
                     <div class="flex flex-col gap-2 w-full">
-                        <a href="#" class="hover:underline transition-all">
+                        <a href="<?= BASE_URL ?>/adminHome/perfil" class="hover:underline transition-all">
                             <i class="fa-solid fa-circle-info"></i>
                             Perfil
                         </a>

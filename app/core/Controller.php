@@ -10,8 +10,22 @@ class Controller {
         require_once $viewFile;
     }
 
+    public function loadTemplateBoth($view, $viewData = []) {
+        $admin = $_SESSION['admin'] == true ? 'Admin' : 'Public';
+        require_once '../app/views/templates/template' . $admin . '.php';
+    }
+
     public function loadTemplateAdmin($view, $viewData = []) {
+        if($_SESSION['admin'] == false) {
+            echo '
+            <script>
+                alert("Você não tem permissão de Administrador. Redirecionando para a página principal disponível...");
+                window.location.href = "' . BASE_URL . '/home";
+            </script>
+            ';
+        }
         require_once '../app/views/templates/templateAdmin.php';
+        
     }
 
     public function loadTemplatePublic($view, $viewData = []) {
