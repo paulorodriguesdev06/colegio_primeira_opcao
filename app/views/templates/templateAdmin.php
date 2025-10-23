@@ -9,7 +9,7 @@ use App\Core\Controller;
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Colégio Primeira Opção</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="<?= BASE_ASSETS ?>css/style.css">
@@ -131,7 +131,7 @@ use App\Core\Controller;
 
                 <div id="perfil-dropdown" class="max-h-0 opacity-0 px-4 py-3 pointer-events-none transition-all absolute top-13 right-8 overflow-hidden flex bg-slate-100 border border-gray-200 text-sm text-nowrap rounded-br-xl rounded-bl-xl">
                     <div class="flex flex-col gap-2 w-full">
-                        <a href="<?= BASE_URL ?>/adminHome/perfil" class="hover:underline transition-all">
+                        <a href="<?= BASE_URL ?>/adminHome/verPerfil" class="hover:underline transition-all">
                             <i class="fa-solid fa-circle-info"></i>
                             Perfil
                         </a>

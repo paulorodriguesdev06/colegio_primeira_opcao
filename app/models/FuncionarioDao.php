@@ -1,11 +1,11 @@
 <?php
 namespace App\Models;
 use App\Core\Model;
+use App\Models\Funcionario;
+
 class FuncionarioDao extends Model{
     
-    private function __construct() {
-        parent::__construct();
-    }   
+    
 
     private function contarLinhas($stmt) {
         $resultado = $stmt->rowCount();
@@ -29,6 +29,19 @@ class FuncionarioDao extends Model{
         $stmt->bindValue(':id', $_SESSION['usuario_id']);
         $stmt->execute();
         $resultado = $stmt->fetch();
-        return $resultado;
+
+        $funcionario = new Funcionario();
+        $funcionario->setId($resultado['id']);
+        $funcionario->setNome($resultado['nome']);
+        $funcionario->setUsuario($resultado['usuario']);
+        $funcionario->setEmail($resultado['email']);
+        $funcionario->setSenha($resultado['senha']);
+        $funcionario->setDataNascimento($resultado['data_nascimento']);
+        $funcionario->setCargo($resultado['cargo']);
+        $funcionario->setSerie($resultado['serie']);
+        $funcionario->setAdmin($resultado['admin']);
+
+        return $funcionario;
     }
+
 }
