@@ -1,10 +1,3 @@
-<?php
-
-namespace App\views\templates;
-use App\Core\Controller;
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -15,9 +8,11 @@ use App\Core\Controller;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="<?= BASE_ASSETS ?>css/style.css">
+    <link rel="stylesheet" href="<?= BASE_ASSETS?>css/dataTables.dataTables.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Story+Script&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="<?= BASE_ASSETS ?>/js/jquery-3.7.1.min.js"></script>
+    <script src="<?= BASE_ASSETS ?>/js/dataTables.min.js"></script>
     <script src="https://kit.fontawesome.com/fb70a83e7a.js" crossorigin="anonymous"></script>
 </head>
 
@@ -112,14 +107,14 @@ use App\Core\Controller;
             <h2>Olá, <?= $_SESSION['nome'] ?></h2>
 
             <div class="flex items-center gap-2">
-                <i id="arrow-perfil-dropdown" class="fa-solid fa-chevron-down text-sm cursor-pointer transition-all"></i>
+                <i id="arrow-perfil-dropdown" class="fa-solid fa-chevron-down text-sm cursor-pointer"></i>
                 <i class="fa-regular fa-user text-xl"></i>
 
                 <!-- Perfil / LogOut - Box -->
 
                 <div id="perfil-dropdown" class="max-h-0 opacity-0 px-4 py-3 pointer-events-none transition-all absolute top-13 right-8 overflow-hidden flex bg-slate-100 border border-gray-200 text-sm text-nowrap rounded-br-xl rounded-bl-xl">
                     <div class="flex flex-col gap-2 w-full">
-                        <a href="#" class="hover:underline transition-all">
+                        <a href="<?= BASE_URL ?>/perfil" class="hover:underline transition-all">
                             <i class="fa-solid fa-circle-info"></i>
                             Perfil
                         </a>
