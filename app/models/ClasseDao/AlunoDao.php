@@ -12,7 +12,7 @@ class AlunoDao extends Model
         $stmt = $this->pdo->prepare($sql);
         $stmt->execute();
         $listadeRegistros = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        $listadeALunos = [];
+        $listadeAlunos = [];
 
         foreach($listadeRegistros as $registro) {
             $a = new Aluno();

@@ -31,13 +31,21 @@ class Controller {
 
     public function loadTemplatePublic($view, $viewData = []) {
         if($_SESSION['admin'] == true) {
-            echo '
-            <script>
-                alert("Você não pode navegar em uma página pública. Entre com uma conta de perfil público");
-                window.location.href = "' . BASE_URL . '/adminHome";
-            </script>
-            ';
+        echo '
+        <script>
+            alert("Você não pode navegar em uma página pública. Entre com uma conta de perfil público");
+            window.location.href = "' . BASE_URL . '/adminHome";
+        </script>
+        ';
         }
         require_once '../app/views/templates/templatePublic.php';
     }
+
+    private function ifSessionLogado() {
+        if($_SESSION['logado'] !== null && !$_SESSION['logado'] == true) {
+            header('Location: login');
+        }
+    }
+        
 }
+
