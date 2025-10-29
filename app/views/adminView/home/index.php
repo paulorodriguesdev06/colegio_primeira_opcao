@@ -53,20 +53,22 @@
         </div>
 
         <div class="w-full h-full max-h-91  rounded shadow-md border border-gray-100 bg-white p-3 overflow-auto">
-            <h3 class="text-lg font-semibold text-center">Novos Alunos</h3>
-            
-            <table id="tableNovosAlunos" class=" cell-border stripe ">
-                <thead>
+            <h3 class="text-lg font-semibold text-center mb-4">Últimos Pagamentos na Semana</h3>
+
+            <table id="tableNovosAlunos" class=" w-full text-sm text-left text-gray-700 stripe">
+                <thead class="text-xs uppercase bg-gray-100">
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Turma</th>
+                    <th>Forma de Pagamento</th>
                 </thead>
                 <tbody>
                     <?php foreach ($todosAlunos as $aluno) : ?>
-                        <tr>
+                        <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
                             <td><?= $aluno->getId() ?></td>
                             <td><?= $aluno->getNome() ?></td>
                             <td><?= $aluno->getTurma() ?></td>
+                            <td class="text-center">Pix</td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>
@@ -81,11 +83,10 @@
 </section>
 
 <script>
-    $(document).ready( function() {
+    $(document).ready(function() {
         $('#tableNovosAlunos').DataTable({
-            "language": {
-                    "url": "//cdn.datatables.net/plug-ins/1.10.12/i18n/Portuguese-Brasil.json"
-                }
+            dom: 't',
+            responsive: true,
         });
 
     })
