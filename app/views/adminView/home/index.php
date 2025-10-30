@@ -48,37 +48,48 @@
     <div class="h-full w-full pb-5 mt-4 grid grid-cols-1 lg:grid-cols-2 gap-4">
 
         <div class="max-h-91 h-full grid grid-cols-2 gap-4">
-            <div class="px-4 py-2 rounded shadow-md border border-gray-100 bg-white"></div>
-            <div class="px-4 py-2 rounded shadow-md border border-gray-100 bg-white"></div>
+            <div class="px-4 py-2 rounded shadow-md border border-gray-100 bg-white">
+                <div class="w-full flex justify-between items-center px-1">
+                    <h3 class="text-gray-800 text-xl mt-3 mb-4">Clima de Hoje</h3>
+                    <i class="fa-regular fa-cloud text-xl text-gray-800"></i>
+                </div>
+            </div>
+            <div class="px-4 py-2 rounded shadow-md border border-gray-100 bg-white">
+                <div class="w-full flex justify-between items-center px-1">
+                    <h3 class="text-gray-800 text-xl mt-3 mb-4">Agenda de Hoje</h3>
+                    <i class="fa-regular fa-calendar text-xl text-gray-800"></i>
+                </div>
+            </div>
         </div>
 
-        <div class="w-full h-full max-h-91  rounded shadow-md border border-gray-100 bg-white p-3 overflow-auto">
-            <h3 class="text-lg font-semibold text-center mb-4">Últimos Pagamentos na Semana</h3>
+        <div class="w-full h-full max-h-91 rounded shadow-md border border-gray-100 bg-white p-3">
+            <h3 class="text-gray-800 text-xl text-center mt-2 mb-4">Últimos Pagamentos na Semana</h3>
 
-            <table id="tableNovosAlunos" class=" w-full text-sm text-left text-gray-700 stripe">
-                <thead class="text-xs uppercase bg-gray-100">
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Turma</th>
-                    <th>Forma de Pagamento</th>
-                </thead>
-                <tbody>
-                    <?php foreach ($todosAlunos as $aluno) : ?>
-                        <tr class="odd:bg-white even:bg-gray-50 hover:bg-gray-100">
-                            <td><?= $aluno->getId() ?></td>
-                            <td><?= $aluno->getNome() ?></td>
-                            <td><?= $aluno->getTurma() ?></td>
-                            <td class="text-center">Pix</td>
+            <div class="h-52 overflow-y-auto">
+                <table id="tableNovosAlunos" class="min-w-full text-sm text-left text-gray-700 z-10">
+                    <thead class="text-xs uppercase bg-gray-100">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nome</th>
+                            <th>Turma</th>
+                            <th>Forma de Pagamento</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($todosAlunos as $aluno) : ?>
+                            <tr class="hover:bg-gray-100">
+                                <td><?= $aluno->getId() ?></td>
+                                <td><?= $aluno->getNome() ?></td>
+                                <td><?= $aluno->getTurma() ?></td>
+                                <td class="text-center">Pix</td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
-
-
-
 
 </section>
 

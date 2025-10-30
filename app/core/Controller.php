@@ -11,11 +11,13 @@ class Controller {
     }
 
     public function loadTemplateBoth($view, $viewData = []) {
+        $this->ifSessionLogado();
         $admin = $_SESSION['admin'] == true ? 'Admin' : 'Public';
         require_once '../app/views/templates/template' . $admin . '.php';
     }
 
     public function loadTemplateAdmin($view, $viewData = []) {
+        $this->ifSessionLogado();
         if($_SESSION['admin'] == false) {
             echo '
             <script>
@@ -30,6 +32,7 @@ class Controller {
     }
 
     public function loadTemplatePublic($view, $viewData = []) {
+        $this->ifSessionLogado();
         if($_SESSION['admin'] == true) {
         echo '
         <script>
@@ -41,8 +44,8 @@ class Controller {
         require_once '../app/views/templates/templatePublic.php';
     }
 
-    private function ifSessionLogado() {
-        if($_SESSION['logado'] !== null && !$_SESSION['logado'] == true) {
+    public function ifSessionLogado() {
+        if(count($_SESSION) == 0) {
             header('Location: login');
         }
     }
