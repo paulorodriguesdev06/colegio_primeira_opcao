@@ -1,6 +1,6 @@
 <?php $this->view('templates/headAdmin') ?>
 
-<body class="bg-gray-100 w-screen h-screen font-[Poppins]">
+<body class="bg-gray-100 font-[Poppins]">
 
     <header>
         <div class="relative hidden lg:block">
@@ -45,7 +45,7 @@
 
                     <!-- Documentos -->
 
-                    <a href="<?= BASE_URL ?>/documentos" class="nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl" id="documents-nav">
+                    <a href="<?= BASE_URL ?>/documentos" class="nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl documents-nav">
                         <i class="fa-regular fa-folder-open text-lg transition"></i>
                         Documentos
                         <i class="fa-solid fa-chevron-down" id="arrow-document"></i>
@@ -53,7 +53,7 @@
 
                     <!-- Dropdown Documentos -->
 
-                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-400 ease-in-out ml-4" id="documents-dropdown">
+                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-400 ease-in-out ml-4 documents-dropdown">
 
                         <!-- Provas -->
 
@@ -134,27 +134,25 @@
 
         <!-- Menu Topo -->
 
-        <div class="flex justify-between items-center gap-2 lg:hidden w-full px-4 py-4 border-b border-b-gray-200 shadow text-gray-700">
-            
-            <h2>Olá, <?= $_SESSION['nome'] ?></h2>
-            <i class="fa-solid fa-bars text-xl"></i>
-
+        <div class="w-full px-4 py-4 flex justify-between items-center gap-2 lg:hidden border-b border-b-gray-200 shadow text-gray-700">
+            <img src="<?= BASE_IMAGES ?>logo-removebg.png?" class="max-w-[50px] rounded-full" alt="Logo-image">
+            <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
         </div>
 
 
-        <!-- Menu Lateral -->
+        <!-- Menu Lateral Responsivo -->
 
-        <div class="block lg:hidden z-30">
-            <nav id="left-menu" class="flex flex-col fixed left-0 w-60 h-full bg-blue-700 shadow-lg text-gray-100 text-sm p-4 ">
-
+        <div class="hidden lg:hidden">
+            <nav id="left-menu-responsive" class="w-70 h-full p-4 fixed top-0 left-0 z-40 flex flex-col bg-blue-700 shadow-lg text-gray-100 text-sm">
+        
                 <div class="logo-box flex mb-[10%]">
                     <img src="<?= BASE_IMAGES ?>logo.jpg?>" class="max-w-[50px] rounded-full" alt="Logo-image">
                     <h2 class="text-xl font-[Lobster] block pl-2">Colégio <span class="flex">Primeira Opção</span></h2>
                 </div>
 
-                <div class="w-full h-px rounded-3xl bg-slate-300 mb-4"></div>
+                <!-- <div class="w-full h-px rounded-3xl bg-slate-300 mb-4"></div> -->
 
-                <div class="nav-links flex flex-col gap-1">
+                <div class="nav-links flex flex-col gap-3">
 
                     <!-- Home -->
 
@@ -186,7 +184,7 @@
 
                     <!-- Documentos -->
 
-                    <a href="<?= BASE_URL ?>/documentos" class="nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl" id="documents-nav">
+                    <a href="<?= BASE_URL ?>/documentos" class="documents-nav nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl documents-nav">
                         <i class="fa-regular fa-folder-open text-lg transition"></i>
                         Documentos
                         <i class="fa-solid fa-chevron-down" id="arrow-document"></i>
@@ -194,7 +192,7 @@
 
                     <!-- Dropdown Documentos -->
 
-                    <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-400 ease-in-out ml-4" id="documents-dropdown">
+                    <div class="documents-dropdown overflow-hidden max-h-0 opacity-0 transition-all duration-400 ease-in-out ml-4">
 
                         <!-- Provas -->
 
@@ -239,11 +237,15 @@
             </nav>
         </div>
 
+        <!-- Overlay -->
+
+        <div class="overlay w-full h-full fixed top-0 left-0 bg-black/50 z-10" id="overlay" style="z-index: 1;"></div>
+
     </header>
 
     <!-- Conteúdo da View -->
 
-    <main class="w-full h-full px-6 pt-3 lg:w-[calc(100%-240px)] lg:h-[calc(100%-52px)] lg:ml-60 lg:pt-17 z-20">
+    <main class="w-full h-full px-3 lg:px-6 pt-3 lg:w-[calc(100%-240px)] lg:h-[calc(100%-52px)] lg:ml-60 lg:pt-17 z-20 overflow-x-hidden">
 
         <?php $this->view($view, $viewData); ?>
 
@@ -274,17 +276,17 @@
 
             $('.nav-link').click(function() {
                 if ($(this).hasClass('dropdown')) {
-                    $('#documents-nav').addClass('bg-blue-800');
+                    $('.documents-nav').addClass('bg-blue-800');
                 }
                 $('.nav-link').removeClass('bg-blue-800');
                 $(this).toggleClass('bg-blue-800');
             });
 
 
-            $('#documents-nav').on('click', function(e) {
+            $('.documents-nav').on('click', function(e) {
                 e.preventDefault();
 
-                const $dropdown = $('#documents-dropdown');
+                const $dropdown = $('.documents-dropdown');
                 const $arrow = $('#arrow-document');
 
                 if ($dropdown.hasClass('max-h-0')) {
@@ -315,6 +317,11 @@
                     $arrow.removeClass('rotate-180');
                 }
 
+            });
+
+            $('#menu-icon').on('click', function() {
+                const $menu = $('.menu');
+                $menu.toggleClass('max-h-0');
             });
 
         });

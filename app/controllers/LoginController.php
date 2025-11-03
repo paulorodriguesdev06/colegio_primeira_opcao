@@ -17,13 +17,19 @@ class LoginController extends Controller
 
     public function index()
     {
+        $dados = [];
+        $dados['inputs'] = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+        $dados['usuario'] = $dados['inputs']['usuario'];
+        $dados['senha'] = $dados['inputs']['senha'];
+        $dados['erro'] = $this->login();
         $erro = $this->login();
-        $this->view('login/index', ['erro' => $erro]);
+        $this->view('login/index', $dados);
         
     }
 
     public function login()
     {
+        
         if (!empty($_POST['usuario']) && !empty($_POST['senha']) && $_SERVER['REQUEST_METHOD'] == 'POST') {
             $usuarioDigitado = $_POST['usuario'];
             $senhaDigitada = $_POST['senha'];

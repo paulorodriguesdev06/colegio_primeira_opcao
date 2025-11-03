@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay'
         },
+        responsive: true,
         locale: 'pt-br',
         navLinks: true, // can click day/week names to navigate views
         selectable: true,
