@@ -45,7 +45,7 @@ class Controller {
     }
 
     public function ifSessionLogado() {
-        if(count($_SESSION) == 0) {
+        if(count($_SESSION) == 0 || $_SESSION['logado'] == false) {
             header('Location: login');
         }
     }
