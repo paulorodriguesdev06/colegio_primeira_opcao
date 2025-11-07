@@ -12,8 +12,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="<?= BASE_ASSETS ?>/js/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.4/js/dataTables.min.js"></script>
-    <!-- <script src="<?= BASE_ASSETS ?>/js/dataTables.min.js"></script> -->
     <link rel="stylesheet" href="<?= BASE_ASSETS ?>/css/dataTables.dataTables.min.css"></script>
-    <script src="https://kit.fontawesome.com/fb70a83e7a.js" crossorigin="anonymous"></script>
-    
+    <script src="https://kit.fontawesome.com/fb70a83e7a.js" crossorigin="anonymous"></script>    
 </head>

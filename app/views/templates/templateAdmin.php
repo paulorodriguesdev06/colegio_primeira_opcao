@@ -1,17 +1,17 @@
 <?php $this->view('templates/headAdmin') ?>
 
-<body class="bg-gray-100 font-[Poppins]">
+<body class="h-screen w-screen bg-gray-100 font-[Poppins]">
 
     <header>
         <div class="relative hidden lg:block">
-            <nav id="left-menu" class="flex flex-col fixed left-0 w-60 h-full bg-blue-700 shadow-lg text-gray-100 text-sm p-4 ">
+            <nav id="left-menu" class="flex flex-col fixed left-0 w-60 h-full bg-blue-700 shadow-lg text-gray-100 text-sm p-4">
 
                 <div class="logo-box flex mb-[10%]">
                     <img src="<?= BASE_IMAGES ?>logo.jpg?>" class="max-w-[50px] rounded-full" alt="Logo-image">
                     <h2 class="text-xl font-[Lobster] block pl-2">Colégio <span class="flex">Primeira Opção</span></h2>
                 </div>
 
-                <div class="w-full h-px rounded-3xl bg-slate-300 mb-4"></div>
+                <!-- <div class="w-full h-px rounded-3xl bg-slate-300 mb-4"></div> -->
 
                 <div class="nav-links flex flex-col gap-1">
 
@@ -82,7 +82,7 @@
 
                 <div class="nav-footer h-full flex flex-col justify-end mb-4">
 
-                    <a href="#" id="tema" class="nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl">
+                    <a href="#"class="tema nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl">
                         <i id="tema-icon" class="fa-regular fa-sun text-lg transition-all ease-in-out"></i>
                         Tema
                     </a>
@@ -100,7 +100,7 @@
 
         <!-- Top Menu -->
 
-        <div id="top-menu" class="hidden fixed top-0 w-[calc(100%-240px)] h-13 ml-60 px-6 lg:flex justify-between items-center bg-slate-100 border-b border-b-gray-200 shadow text-gray-700">
+        <div id="top-menu" class="hidden fixed top-0 w-[calc(100%-240px)] h-13 ml-60 px-6 lg:flex justify-between items-center bg-slate-100 border-b border-b-gray-200 shadow text-gray-700 z-40">
 
             <h2>Olá, <?= $_SESSION['nome'] ?></h2>
 
@@ -142,7 +142,7 @@
 
         <!-- Menu Lateral Responsivo -->
 
-        <div class="hidden lg:hidden">
+        <div id="responsive-menu" class="-left-full max-w-0 opacity-0 pointer-events-none transition-all duration-200 lg:max-h-0 lg:-left-full lg:pointer-events-none">
             <nav id="left-menu-responsive" class="w-70 h-full p-4 fixed top-0 left-0 z-40 flex flex-col bg-blue-700 shadow-lg text-gray-100 text-sm">
         
                 <div class="logo-box flex mb-[10%]">
@@ -221,8 +221,8 @@
 
                 <div class="nav-footer h-full flex flex-col justify-end mb-4">
 
-                    <a href="#" id="tema" class="nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl">
-                        <i id="tema-icon" class="fa-regular fa-sun text-lg transition-all ease-in-out"></i>
+                    <a href="#" class="tema nav-link flex gap-2 items-center transition delay-100 hover:bg-blue-800 p-2 rounded-xl">
+                        <i class=" tema-icon fa-regular fa-sun text-lg transition-all ease-in-out"></i>
                         Tema
                     </a>
 
@@ -239,13 +239,14 @@
 
         <!-- Overlay -->
 
-        <div class="overlay w-full h-full fixed top-0 left-0 bg-black/50 z-10" id="overlay" style="z-index: 1;"></div>
+        <div id="overlay" class="hidden w-full h-full fixed top-0 left-0 bg-black/50 z-10 transition duration-200"></div>
 
     </header>
 
+
     <!-- Conteúdo da View -->
 
-    <main class="w-full h-full px-3 lg:px-6 pt-3 lg:w-[calc(100%-240px)] lg:h-[calc(100%-52px)] lg:ml-60 lg:pt-17 z-20 overflow-x-hidden">
+    <main class="w-full h-full lg:w-[calc(100%-240px)] px-3 lg:px-6 pt-3 lg:ml-60 lg:pt-17 z-20 overflow-hidden">
 
         <?php $this->view($view, $viewData); ?>
 
@@ -257,8 +258,8 @@
     <script>
         $(document).ready(function() {
 
-            $('#tema').on('click', function() {
-                const $icon = $('#tema-icon');
+            $('.tema').on('click', function() {
+                const $icon = $('.tema-icon');
 
                 $icon.addClass('opacity-0 rotate-180 transition-all duration-300'); // sai suavemente
 
@@ -291,7 +292,7 @@
 
                 if ($dropdown.hasClass('max-h-0')) {
                     // Abrir com transição suave
-                    $dropdown.removeClass('max-h-0 opacity-0').addClass('max-h-40 opacity-100');
+                    $dropdown.removeClass('max-h-0').addClass('max-h-40 opacity-100');
                     $arrow.addClass('rotate-180');
                 } else {
                     // Fechar com transição suave
@@ -320,9 +321,31 @@
             });
 
             $('#menu-icon').on('click', function() {
-                const $menu = $('.menu');
-                $menu.toggleClass('max-h-0');
+                const $menu = $('#responsive-menu');
+                if($menu.hasClass('max-w-0')) {
+                    $menu.removeClass('-left-full max-w-0 opacity-0 pointer-events-none')
+                        .addClass('left-0 max-w-40 opacity-100 pointer-events-auto');
+                    $('#overlay').removeClass('hidden');
+                } else {
+                    $menu.removeClass('left-0 max-w-40 opacity-100 pointer-events-auto')
+                        .addClass('-left-full max-w-0 opacity-0 pointer-events-none');
+                    $('#overlay').addClass('hidden');
+                }
+                
             });
+            if($(window).width() > 1023) {
+                const $menu = $('#responsive-menu');
+                $menu.addClass('-left-full max-w-0 opacity-0 pointer-events-none');
+                $('#overlay').addClass('hidden');
+            }
+            
+            $('#overlay').on('click', function() {
+                const $menu = $('#responsive-menu');
+                $menu.removeClass('left-0 max-w-40 opacity-100 pointer-events-auto')
+                    .addClass('-left-full max-w-0 opacity-0 pointer-events-none');
+                $('#overlay').addClass('hidden');
+            });
+            
 
-        });
+        }); 
     </script>
