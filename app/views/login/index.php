@@ -1,8 +1,3 @@
-<?php
-namespace App\views\login;
-use App\Controllers\LoginController;
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>

@@ -85,6 +85,24 @@ class FuncionarioDao extends Model
         return $f;
 
         
-}
+    }
+
+    public function redefinirSenha($usuario) {
+        $usuario = $this->selecionarFuncionarioporUsuario($usuario);
+        if($usuario) {
+            $destino = $usuario->getEmail();
+            $assunto = "Redefinição de Senha - Colégio Primeira Opção";
+            $mensagem = "Olá";
+            $headers = "From : pvsrimp@gmail.com0";
+            mail($destino, $assunto, $mensagem, $headers);
+            echo "Email enviadp";
+        } else {
+            echo 'Erro ao enviar';
+        }
+
+    }
+
+
+
 }
 
