@@ -15,6 +15,13 @@ class LoginController extends Controller
         $this->fc = new FuncionarioDao();
     }
 
+    public function redefinirSenha()
+    {
+        $dados = [];
+        $this->enviarEmail();
+        $this->view('login/redefinirSenha', $dados);
+    }
+
     public function index()
     {
         $dados = [];
@@ -61,8 +68,25 @@ class LoginController extends Controller
             }
         }
     }
-    public function redefinirSenha()
-    {
-        $this->view('login/redefinirSenha');
+
+    public function enviarEmail() {
+        echo 'loajjd';
+        // if(!empty($_POST['usuario'])) {
+        //     echo 'dbawagdajdhawjidhjaewhfjeahfjeahfjhsejfhbesjfbhbebfsebfhesbfhbeshfvbsefsefsfsfsfsefsf';
+        //     $usuarioInput = $_POST['usuario'];
+        //     $usuario = $this->fc->selecionarFuncionarioporUsuario($usuarioInput);
+        //     if($usuario) {
+        //     $destino = $usuario->getEmail();
+        //     $assunto = "Redefinição de Senha - Colégio Primeira Opção";
+        //     $mensagem = "Olá";
+        //     $headers = "From : pvsrimp@gmail.com";
+        //     mail($destino, $assunto, $mensagem, $headers);
+        //     echo "Email enviadp";
+        // } else {
+        //     echo 'Erro ao enviar';
+        // }
+
+        // }
     }
+    
 }

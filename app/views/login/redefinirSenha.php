@@ -11,7 +11,7 @@
 </head>
 <body class="w-screen h-screen flex items-center justify-center bg-[url(<?= BASE_IMAGES ?>image-login.jpg?>)] bg-cover bg-center font-[Poppins]">
 
-    <div class="overlay fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"></div>
+    <!-- <div class="overlay fixed top-0 left-0 w-screen h-screen bg-black opacity-50 z-10"></div> -->
     <section class="content-section bg-zinc-900 shadow-lg p-8 w-1/3 flex flex-col justify-center rounded-3xl z-20">
         <div class="flex items-center justify-center mb-5">
             <img class="max-w-[100px]" src="<?= BASE_IMAGES ?>/logo-removebg.png" alt="Logo">
