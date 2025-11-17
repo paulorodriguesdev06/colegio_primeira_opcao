@@ -2,6 +2,7 @@
 namespace App\Controllers;
 use App\Core\Controller;
 use App\Models\Session;
+use App\Models\Email;
 use App\Models\ClasseDao\FuncionarioDao;
 
 
@@ -18,7 +19,8 @@ class LoginController extends Controller
     public function redefinirSenha()
     {
         $dados = [];
-        $this->enviarEmail();
+       
+        
         $this->view('login/redefinirSenha', $dados);
     }
 
@@ -69,24 +71,4 @@ class LoginController extends Controller
         }
     }
 
-    public function enviarEmail() {
-        echo 'loajjd';
-        // if(!empty($_POST['usuario'])) {
-        //     echo 'dbawagdajdhawjidhjaewhfjeahfjeahfjhsejfhbesjfbhbebfsebfhesbfhbeshfvbsefsefsfsfsfsefsf';
-        //     $usuarioInput = $_POST['usuario'];
-        //     $usuario = $this->fc->selecionarFuncionarioporUsuario($usuarioInput);
-        //     if($usuario) {
-        //     $destino = $usuario->getEmail();
-        //     $assunto = "Redefinição de Senha - Colégio Primeira Opção";
-        //     $mensagem = "Olá";
-        //     $headers = "From : pvsrimp@gmail.com";
-        //     mail($destino, $assunto, $mensagem, $headers);
-        //     echo "Email enviadp";
-        // } else {
-        //     echo 'Erro ao enviar';
-        // }
-
-        // }
-    }
-    
 }
