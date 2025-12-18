@@ -14,7 +14,7 @@
     <section class="content-section bg-white shadow-lg p-8 w-1/3 flex flex-col justify-center rounded-3xl">
     	<div class="flex items-center justify-center mb-5">
       		<img class="max-w-[100px]" src="<?= BASE_IMAGES ?>logo.jpg" alt="Logo">
-      		<h2 class="text-4xl font-bold font-[Lobster]">Primeiradad <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>
+      		<h2 class="text-4xl font-bold font-[Lobster]">Primeira <span class="text-3xl  text-blue-800">OPÇÃO</span></h2>
       	</div>
 		
 	    <form action="" method="POST" class="space-y-6">
