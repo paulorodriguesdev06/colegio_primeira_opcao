@@ -28,10 +28,12 @@ class LoginController extends Controller
     {
         $dados = [];
         $dados['inputs'] = filter_input_array(INPUT_POST, FILTER_DEFAULT);
-        $dados['usuario'] = $dados['inputs']['usuario'];
-        $dados['senha'] = $dados['inputs']['senha'];
+        if(isset($dados['input']) && !empty($dados['input'])) {
+            $dados['usuario'] = $dados['inputs']['usuario'];
+            $dados['senha'] = $dados['inputs']['senha'];
+            
+        }
         $dados['erro'] = $this->login();
-        $erro = $this->login();
         $this->view('login/index', $dados);
         
     }
