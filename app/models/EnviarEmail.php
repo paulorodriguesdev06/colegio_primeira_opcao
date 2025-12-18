@@ -12,7 +12,8 @@ $email->setSubject('Redefinição de senha');
 $email->addTo('paulo.rodrigues.develop@gmail.com', 'Paulo Victor');
 $email->addContent("text/plain", 'Aqui abaixo está um link de redefinição de senha');
 
-$sendgrid = new \SendGrid($_ENV['']);
+$apiKey = getenv('SENDGRID_API_KEY');
+$sendgrid = new \SendGrid($_ENV[$apiKey]);
 try {
     $response = $sendgrid->send($email);
     print $response->statusCode() . "\n";
